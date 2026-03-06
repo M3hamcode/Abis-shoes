@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abis Shoes | Premium Footwear</title>
+    <!-- Importing Google Fonts for a Professional Look -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- 1. GLOBAL VARIABLES & RESET --- */
+        :root {
+            --primary-brown: #2C1810; /* Deep Espresso */
+            --secondary-brown: #4E342E; /* Lighter Brown */
+            --accent-gold: #D4AF37; /* Luxury Gold */
+            --text-light: #F5F5F5; /* Off-white */
+            --text-grey: #B0B0B0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--primary-brown);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- 2. NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: rgba(44, 24, 16, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-light);
+        }
+
+        .logo span { color: var(--accent-gold); }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover { color: var(--accent-gold); }
+
+        .cart-icon { cursor: pointer; }
+
+        /* --- 3. HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(44, 24, 16, 0.7), rgba(44, 24, 16, 0.7)), 
+                        url('https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=2012&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Parallax effect */
+            padding: 0 20px;
+        }
+
+        .hero-content h2 {
+            font-size: 1rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-grey);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            background-color: var(--accent-gold);
+            color: var(--primary-brown);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        /* --- 4. FEATURED COLLECTION --- */
+        .collection {
+            padding: 80px 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h3 {
+            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--text-light);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            background-color: var(--secondary-brown);
+            padding: 20px;
+            text-align: center;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            filter: grayscale(20%);
+            transition: 0.3s;
+        }
+
+        .product-card:hover .product-img {
+            filter: grayscale(0%);
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        /* --- 5. BRAND STORY --- */
+        .brand-story {
+            background-color: #1a0f0a;
+            padding: 80px 5%;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .story-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .story-text h3 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .story-text p {
+            color: var(--text-grey);
+            margin-bottom: 20px;
+        }
+
+        .story-img {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .story-img img {
+            width: 100%;
+            border-radius: 5px;
+            border: 2px solid var(--accent-gold);
+        }
+
+        /* --- 6. FOOTER --- */
+        footer {
+            background-color: #110906;
+            padding: 50px 5%;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .footer-links {
+            margin-bottom: 30px;
+        }
+
+        .footer-links a {
+            margin: 0 15px;
+            font-size: 0.9rem;
+            color: var(--text-grey);
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* Simplified for demo */
+            .brand-story { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">Abis <span>Shoes</span></div>
+        <ul class="nav-links">
+            <li><a href="#">Men</a></li>
+            <li><a href="#">Women</a></li>
+            <li><a href="#">Collection</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+        <div class="cart-icon">🛒 (0)</div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Walk with Confidence</h2>
+            <h1>THE ESSENTIAL<br>LEATHER COLLECTION</h1>
+            <p>Handcrafted for the modern individual. Experience the perfect blend of style, comfort, and durability with Abis Shoes.</p>
+            <button class="btn">Shop The Collection</button>
+        </div>
+    </section>
+
+    <!-- FEATURED PRODUCTS -->
+    <section class="collection">
+        <div class="section-header">
+            <h3>Latest Arrivals</h3>
+        </div>
+        
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1614252369475-531eba835eb1?q=80&w=1000&auto=format&fit=crop" alt="Shoe" class="product-img">
+                <div class="product-title">The Oxford Classic</div>
+                <div class="product-price">$129.00</div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=1000&auto=format&fit=crop" alt="Shoe" class="product-img">
+                <div class="product-title">Abis Runner Pro</div>
+                <div class="product-price">$145.00</div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1533867617858-e7b97e060509?q=80&w=1000&auto=format&fit=crop" alt="Shoe" class="product-img">
+                <div class="product-title">The Chelsea Boot</div>
+                <div class="product-price">$189.00</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BRAND STORY -->
+    <section class="brand-story">
+        <div class="story-text">
+            <h3>Designed for the Journey</h3>
+            <p>At Abis Shoes, we believe that a shoe is more than just footwear—it is the foundation of your journey. Born from a passion for leather craftsmanship, we combine traditional techniques with modern design.</p>
+            <p>Every pair is inspected for quality, ensuring that when you step out, you step out in style.</p>
+            <button class="btn" style="background: transparent; border: 1px solid var(--accent-gold); color: var(--accent-gold);">Read Our Story</button>
+        </div>
+        <div class="story-img">
+            <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?q=80&w=1000&auto=format&fit=crop" alt="Craftsmanship">
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo">Abis Shoes</div>
+        <div class="footer-links">
+            <a href="#">Shipping</a>
+            <a href="#">Returns</a>
+            <a href="#">Size Guide</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="copyright">
+            &copy; 2023 Abis Shoes. All Rights Reserved. | abisshoes.com
+        </div>
+    </footer>
+
+</body>
+</html>
